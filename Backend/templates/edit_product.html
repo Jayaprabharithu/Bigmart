@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% extends 'index.html'%}
+{%block content%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CATEGORY</title>
+</head>
+<body>
+<form class="forms-sample" method="post" action="{% url 'update_product' pid=data.id%}" enctype="multipart/form-data">
+    {%csrf_token%}
+                    <div class="form-group">
+                      <label for="exampleSelectGender">Select Category</label>
+                        <select class="form-control" id="exampleSelectGender" name="cat_name">
+                          <option>{{data.Category}}</option>
+                            {% for j in cat %}
+                          <option>{{j.Category_Name}}</option>
+                            {%endfor%}
+                        </select>
+                      </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Product Name</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name" value="{{data.Product_name}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Price</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="price" name="price" value="{{data.Price}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Description</label>
+                      <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Description" name="dis" value="{{data.pro_Description}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Category Image</label>
+                      <input type="file" class="form-control" id="exampleInputEmail3" placeholder="" name="image" value="{{data.pro_image}}">
+                    </div>
+
+
+<!--                    <div class="form-group">-->
+<!--                      <label>Category Image</label>-->
+<!--                      <input type="file" name="img[]" class="file-upload-default">-->
+<!--                      <div class="input-group col-xs-12">-->
+<!--                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">-->
+<!--                        <span class="input-group-append">-->
+<!--                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>-->
+<!--                        </span>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleInputCity1">City</label>-->
+<!--                      <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                      <label for="exampleTextarea1">Textarea</label>-->
+<!--                      <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>-->
+<!--                    </div>-->
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+
+</body>
+</html>
+{%endblock%}
